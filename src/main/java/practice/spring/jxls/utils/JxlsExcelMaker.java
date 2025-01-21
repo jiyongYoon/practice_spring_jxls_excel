@@ -18,7 +18,7 @@ public class JxlsExcelMaker {
     Resource template = resourceLoader.getResource("classpath:" + templateFileName);
     if (template.exists()) {
       return Optional.ofNullable(JxlsPoiTemplateFillerBuilder.newInstance()
-          .withTemplate(template.getFile().getAbsolutePath())
+          .withTemplate(template.getInputStream())
           .withStreaming(JxlsStreaming.STREAMING_ON));
     } else {
       return Optional.empty();
